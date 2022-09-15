@@ -23,11 +23,11 @@ function calculateTotalMortgage(percent, contribution, amount, date) {
   let checkAmount = Number(amount);
   let totalAmount;
   if (isNaN(checkPercent)) {
-    return totalAmount = `Параметр "Процентная ставка" содержит неправильное значение "${percent}"`;
+    return `Параметр "Процентная ставка" содержит неправильное значение "${percent}"`;
   } else if (isNaN(checkContribution)) {
-    return totalAmount = `Параметр "Начальный взнос" содержит неправильное значение "${contribution}"`;
+    return `Параметр "Начальный взнос" содержит неправильное значение "${contribution}"`;
   } else if (isNaN(checkAmount)) {
-    return totalAmount = `Параметр "Общая стоимость" содержит неправильное значение "${amount}"`;
+    return `Параметр "Общая стоимость" содержит неправильное значение "${amount}"`;
   }
   let bodyCredit = checkAmount - checkContribution;
   let carrentDate = new Date();
