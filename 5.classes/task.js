@@ -105,13 +105,15 @@ class Library extends PrintEditionItem {
   }
 
   addMark (mark, discipline) {
-    
-  this.journal.push(discipline, [mark]);
-   
+  if (this.journal.includes(discipline))
+  this.journal.push([mark]);
+  else {
+    this.journal.push(discipline, [mark]);
+  } 
   }
-
- 
 }
+
+
 
 const first = new Student(`Андрей Шитов`); 
 
@@ -126,6 +128,7 @@ second.addMark(3, `geometria`);
 second.addMark(3, `geometria`);
 second.addMark(5, `geometria`);
 second.addMark(3, `geometria`);
+second.addMark(2, `geometria`);
 
 console.log(first);
 console.log(second); */
