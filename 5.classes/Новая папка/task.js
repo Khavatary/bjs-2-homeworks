@@ -5,7 +5,9 @@ class PrintEditionItem {
     this.pagesCount = pagesCount;
     this.condition = 100;
     this.type = null;
+    
   }
+
 
 
   fix() {
@@ -86,50 +88,18 @@ class Library extends PrintEditionItem {
   }
 
   giveBookByName(bookName) {
+    console.log(this.books);
+    console.log(bookName);
     let getFind = this.books.findIndex(book => bookName === book.name);
-    let findBook = this.books[getFind];
+    console.log(this.books[getFind].name);
+    let findBook = this.books[getFind].name;
     if (getFind === -1) {
       return null;
     }
     this.books.splice(getFind, 1);
-    return findBook;
+      console.log(this.books);
+      console.log(findBook);
+      return findBook;
   }
 }
-
-/* Задание 3 */
-
-/* class Student {
-  constructor(name){
-    this.name = name;
-    this.journal = [];
-  }
-
-  addMark (mark, discipline) {
-    
-  this.journal.push(discipline, [mark]);
-   
-  }
-
- 
-}
-
-const first = new Student(`Андрей Шитов`); 
-
-first.addMark(5, `algebra`);
-first.addMark(4, `geometria`);
-first.addMark(4, `geometria`);
-
-const second = new Student(`Александр Шитов`); 
-
-second.addMark(4, `algebra`);
-second.addMark(3, `geometria`);
-second.addMark(3, `geometria`);
-second.addMark(5, `geometria`);
-second.addMark(3, `geometria`);
-
-console.log(first);
-console.log(second); */
-
-
-
 
