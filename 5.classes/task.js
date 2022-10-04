@@ -98,7 +98,7 @@ class Library extends PrintEditionItem {
 
 /* Задание 3 */
 
-/* class Student {
+class Student {
   constructor(name){
     this.name = name;
     this.journal = [];
@@ -108,7 +108,8 @@ class Library extends PrintEditionItem {
   if (this.journal.includes(discipline))
   this.journal.push([mark]);
   else {
-    this.journal.push(discipline, [mark]);
+    this.journal.push(discipline);
+    this.journal.push([mark]);
   } 
   }
 }
@@ -131,7 +132,7 @@ second.addMark(3, `geometria`);
 second.addMark(2, `geometria`);
 
 console.log(first);
-console.log(second); */
+console.log(second); 
 
 
 
