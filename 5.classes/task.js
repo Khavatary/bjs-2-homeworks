@@ -101,35 +101,55 @@ class Library extends PrintEditionItem {
 class Student {
   constructor(name){
     this.name = name;
-    this.journal = [];
+    this.marks = {
+      algebra: [5, 5],
+      history: [4, 4]
+    }
+    
   }
 
   addMark (mark, discipline) {
-  if (this.journal.includes(discipline))
-  this.journal.push([mark]);
-  else {
-    this.journal.push(discipline);
-    this.journal.push([mark]);
-  } 
+    let temp = discipline;
+    console.log(temp);
+    if (temp in this.marks) {
+       this.marks.temp.push(mark);
+    } else {
+      this.marks.discipline = [];
+      this.marks.discipline.push(mark);
+    }
+  }
+  
+  getAverageBySubject (discipline) {
+    let temp = discipline;
+    
   }
 }
-
+/* addMark (mark, discipline) {
+    let temp = discipline;
+    console.log(temp);
+    if (temp in this.marks) {
+      this.marks.temp.push(mark);
+    } else {
+      this.marks.discipline = [];
+      this.marks.discipline.push(mark);
+    }
+  } */
 
 
 const first = new Student(`Андрей Шитов`); 
 
-first.addMark(5, `algebra`);
-first.addMark(4, `geometria`);
-first.addMark(4, `geometria`);
+first.addMark(3, `algebra`);
+/* first.addMark(4, `geometria`);
+first.addMark(4, `geometria`); */
 
 const second = new Student(`Александр Шитов`); 
 
-second.addMark(4, `algebra`);
+/* second.addMark(4, `algebra`);
 second.addMark(3, `geometria`);
 second.addMark(3, `geometria`);
 second.addMark(5, `geometria`);
 second.addMark(3, `geometria`);
-second.addMark(2, `geometria`);
+second.addMark(2, `geometria`); */
 
 console.log(first);
 console.log(second); 
