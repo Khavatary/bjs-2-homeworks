@@ -99,61 +99,40 @@ class Library extends PrintEditionItem {
 /* Задание 3 */
 
 class Student {
-  constructor(name){
+  constructor(name) {
     this.name = name;
-    this.marks = {
-      algebra: [5, 5],
-      history: [4, 4]
-    }
-    
+    this.marks = {}
   }
 
-  addMark (mark, discipline) {
-    let temp = discipline;
-    console.log(temp);
-    if (temp in this.marks) {
-       this.marks.temp.push(mark);
+  addMark(mark, discipline) {
+    if (discipline in this.marks != true) {
+      this.marks[discipline] = [];
+    }
+    if ((mark > 0) && (mark < 6)) {
+      this.marks[discipline].push(mark);
     } else {
-      this.marks.discipline = [];
-      this.marks.discipline.push(mark);
+      return console.log(`Ошибка, оценка должна быть числом от 1 до 5`);
     }
   }
-  
+
+  exclude() {
+    delete this.marks;
+    console.log(`Исключен за попытку подделать оценки`);
+  }
+
   getAverageBySubject (discipline) {
-    let temp = discipline;
-    
+    let sum = 0;
+    this.marks[discipline].forEach((i) => sum += i);
+    return sum / this.marks[discipline].length;
+  }
+
+  getAverage () {
+    let sum = 0;
+    let count = 0;
+    let tempMarks = Object.values(this.marks);
+    for (let i = 0; i < tempMarks.length; i++) {
+      tempMarks[i].forEach((num) => sum += num);
+      count += tempMarks[i].length;
+    } return sum / count;
   }
 }
-/* addMark (mark, discipline) {
-    let temp = discipline;
-    console.log(temp);
-    if (temp in this.marks) {
-      this.marks.temp.push(mark);
-    } else {
-      this.marks.discipline = [];
-      this.marks.discipline.push(mark);
-    }
-  } */
-
-
-const first = new Student(`Андрей Шитов`); 
-
-first.addMark(3, `algebra`);
-/* first.addMark(4, `geometria`);
-first.addMark(4, `geometria`); */
-
-const second = new Student(`Александр Шитов`); 
-
-/* second.addMark(4, `algebra`);
-second.addMark(3, `geometria`);
-second.addMark(3, `geometria`);
-second.addMark(5, `geometria`);
-second.addMark(3, `geometria`);
-second.addMark(2, `geometria`); */
-
-console.log(first);
-console.log(second); 
-
-
-
-
