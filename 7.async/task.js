@@ -7,7 +7,8 @@ class AlarmClock {
   addClock(time, callback, id) {
     if (!id) {
       throw new Error('Невозможно идентифицировать будильник. Параметр id не передан');
-    } else if (this.alarmCollection.find(clock => clock.id === id)) {
+    } 
+    if (this.alarmCollection.find(clock => clock.id === id)) {
       return console.error('Будильник с таким id уже существует');
     }
     return this.alarmCollection.push({
