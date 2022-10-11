@@ -29,6 +29,7 @@ function debounceDecoratorNew(func, delay) {
   function wrapper(...args) {
     wrapper.allCount++;
     if (timeoutId === null) {
+      wrapper.count++;
       func.call(this, ...args);
     }
     if (timeoutId) {
@@ -36,7 +37,6 @@ function debounceDecoratorNew(func, delay) {
     }
     timeoutId = setTimeout(() => {
       wrapper.count++;
-      timeoutId = null;
       func.call(this, ...args);
     }, delay);
     console.log(wrapper.count);
@@ -44,3 +44,4 @@ function debounceDecoratorNew(func, delay) {
   }
   return wrapper;
 }
+
